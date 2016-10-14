@@ -1,0 +1,68 @@
+
+监控ceph
+ceph -s
+ceph -w
+ceph status
+ceph health
+ceph health detail
+
+ceph mon stat
+ceph mon dump
+
+ceph quorum_statis --format json-pretty
+
+ceph osd tree
+ceph osd stat
+ceph osd dump
+ceph osd lspools
+ceph osd crush dump
+ceph osd backlist ls
+ceph osd crush rule dump
+ceph osd crush rule list
+ceph osd find <Numeric_OSD_ID>
+
+ceph pg stat
+ceph pg dump
+ceph pg dump -f json-pretty
+ceph pg 2.7d query
+ceph pg dump_stuck stale
+ceph pg dump_stuck unclean
+ceph pg dump_stuck inactive
+
+ceph fs ls
+ceph mds stat
+ceph mds dump
+
+ceph df
+ceph pg dump
+ceph auth list
+
+
+rados lspools
+rados bench -p .rgw 10 seq
+
+ceph-deploy --version
+
+ceph tell osd.0 heap stats
+
+ceph osd erasure-code-profile ls
+ceph osd erasure-code-profile get default
+
+hostname -f
+
+mount |grep -i osd|wc -l
+echo > 3 /proc/sys/vm/drop_caches
+
+ceph --admin-daemon ceph-osd.3.asok config show|wc -l # 
+
+ceph --admin-daemon ceph-osd.3.asok config show|grep pref
+
+ceph daemon /var/run/ceph/ceph-mon.*asok log dump # ceph提供了方法来查看最近的log，这就是log dump方法。
+
+ceph osd dump|egrep -i "EC-pool|cache-pool" ID47 只读 ID48回写
+
+service ceph-raodsgw stauts
+netstat -nlp |grep -i 7480
+
+ceph-deploy osd prepare ai185:/dve/vdb1
+ceph-deploy osd activate ai185:/dev/vdb1
